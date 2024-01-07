@@ -1,0 +1,42 @@
+﻿@page
+@model HotelBookingWeb.Pages.Facilitati.IndexModel
+
+@{
+    ViewData["Title"] = "Facilitati";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Facilitate[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facilitate[0].Descriere)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Facilitate) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descriere)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.FacilitateId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.FacilitateId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.FacilitateId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

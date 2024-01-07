@@ -1,0 +1,66 @@
+﻿@page
+@model HotelBookingWeb.Pages.Camere.IndexModel
+
+@{
+    ViewData["Title"] = "Camere";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Camera[0].Numar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camera[0].Tip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camera[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camera[0].Disponibilitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camera[0].Descriere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camera[0].Rezervari)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Camera) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disponibilitate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descriere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rezervari)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CameraId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CameraId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CameraId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
